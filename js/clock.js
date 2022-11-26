@@ -3,35 +3,39 @@ if (!getName) {
   getName = "Patika.dev";
 }
 
-window.addEventListener("load", () => {
-  let getClock = document.getElementById("get-clock");
-  // Gunler
-  dayName = [
-    "Pazartesi",
-    "Sali",
-    "Carsamba",
-    "Persembe",
-    "Cuma",
-    "Cumartesi",
-    "Pazar",
-  ];
+let userName = document.getElementById("user");
+userName.innerHTML = getName;
 
-  clock();
+let getClock = document.getElementById("get-clock");
+// Gunler
+const DAYS = [
+  "Pazartesi",
+  "Sali",
+  "Carsamba",
+  "Persembe",
+  "Cuma",
+  "Cumartesi",
+  "Pazar",
+];
 
-  let userName = document.getElementById("user");
-  userName.innerHTML = getName;
+function clock() {
 
-  function clock() {
-    const TODAY = new Date();
-    const TODAY_NAME = TODAY.getDay();
-    // time
-    const HOURS = TODAY.getHours();
-    const MINUTES = TODAY.getMinutes();
-    const SECONDS = TODAY.getSeconds();
+  const TODAY = new Date();
+  const TODAY_NAME = TODAY.getDay();
+  // time
+  const HOURS = twoDigits(TODAY.getHours());
+  const MINUTES = twoDigits(TODAY.getMinutes());
+  const SECONDS = twoDigits(TODAY.getSeconds());
 
-    let time = `${HOURS}:${MINUTES}:${SECONDS} ${dayName[TODAY_NAME - 1]}`;
+  let time = `${HOURS}:${MINUTES}:${SECONDS} ${DAYS[TODAY_NAME - 1]} `;
 
-    getClock.innerHTML = time;
-    setTimeout(clock, 1000);
-  }
-});
+  getClock.innerHTML = time;
+
+  setTimeout(clock, 1000);
+}
+
+function twoDigits(date) {
+  return (date < 10 ? "0" : "") + date;
+}
+
+clock();

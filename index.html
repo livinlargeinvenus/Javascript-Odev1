@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Saat ve Karşılama</title>
-    <script src="./js/clock.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link
       rel="stylesheet"
@@ -24,12 +23,15 @@
       <div class="text1 text-center">
         Merhaba, <strong><span id="user"></span>!</strong> Hos Geldin!
       </div>
-      <div id="clock" class="clock"><span id="get-clock"></span></div>
+      <div id="clock" class="clock" onload="clock()">
+        <span id="get-clock"></span>
+      </div>
       <div class="text2 text-center">
         tarihinde
         <strong>Kodluyoruz Frontend Web Development Patikası</strong>'nın
         Javascript bölümü 1. Ödevindesiniz.
       </div>
+      <script src="./js/clock.js"></script>
     </div>
   </body>
 </html>
